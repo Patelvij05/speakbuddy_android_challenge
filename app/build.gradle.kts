@@ -1,60 +1,48 @@
-plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.plugin.serialization")
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 
-    kotlin("kapt")
-    id("com.google.dagger.hilt.android")
-    id("com.google.protobuf")
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.android.junit5)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.room)
+    alias(libs.plugins.protobuf)
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "jp.speakbuddy.edisonandroidexercise"
-    compileSdk = 34
 
     defaultConfig {
         applicationId = "jp.speakbuddy.edisonandroidexercise"
-        minSdk = 26
-        targetSdk = 34
         versionCode = 1
         versionName = "0.0.1"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
     }
 
     buildTypes {
         release {
+            isDebuggable = false
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = "17"
+        debug {
+            isDebuggable = true
+        }
     }
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
-    }
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+    room {
+        schemaDirectory("$projectDir/schemas")
     }
 }
 
 // Setup protobuf configuration, generating lite Java and Kotlin classes
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:22.0"
+        artifact = "com.google.protobuf:protoc:4.26.1"
     }
     generateProtoTasks {
         all().forEach { task ->
@@ -71,32 +59,64 @@ protobuf {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.0")
-    implementation("androidx.activity:activity-compose:1.9.0")
-    implementation("androidx.compose.ui:ui:1.6.7")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.6.7")
-    implementation("androidx.compose.material3:material3:1.2.1")
-    implementation("androidx.datastore:datastore-preferences:1.1.1")
-    implementation("androidx.datastore:datastore:1.1.1")
-    implementation("com.google.dagger:hilt-android:2.51")
-    kapt("com.google.dagger:hilt-android-compiler:2.44.2")
-    implementation("com.google.protobuf:protobuf-kotlin-lite:3.25.2")
+    implementation(projects.theme)
+    implementation(projects.storage)
+    implementation(projects.network)
+    implementation(projects.database)
+    implementation(projects.common.data)
+    implementation(projects.feature.fact)
+    implementation(projects.feature.fact.data)
+    implementation(projects.feature.fact.domain)
+    implementation(projects.feature.facthistory)
+    implementation(projects.feature.facthistory.data)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
 
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.androidx.compose.material3)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.6.7")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.6.7")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.7")
-}
+    implementation(libs.androidx.compose.navigation)
+    implementation(libs.androidx.hilt.compose.navigation)
 
-kapt {
-    correctErrorTypes = true
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
+
+    implementation(libs.datastore)
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.protobuf.kotlin.lite)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit.kotlin.serialization)
+    implementation(libs.okhttp)
+    implementation(libs.retrofit.core)
+    kspTest(libs.hilt.compiler)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.hilt.android.testing)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    androidTestImplementation(libs.hilt.android.testing)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }

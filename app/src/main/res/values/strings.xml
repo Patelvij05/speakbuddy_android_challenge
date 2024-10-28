@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Edison Android Exercise</string>
+    <string name="txt_fact_title">Fact</string>
 </resources>

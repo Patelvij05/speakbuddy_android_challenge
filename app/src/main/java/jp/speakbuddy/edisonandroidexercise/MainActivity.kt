@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import jp.speakbuddy.edisonandroidexercise.common.data.model.FactModel
-import jp.speakbuddy.edisonandroidexercise.feature.fact.ui.fact.FactContent
-import jp.speakbuddy.edisonandroidexercise.feature.fact.ui.fact.FactUiState
+import jp.speakbuddy.edisonandroidexercise.feature.fact.ui.FactContent
+import jp.speakbuddy.edisonandroidexercise.feature.fact.ui.FactUiState
 import jp.speakbuddy.edisonandroidexercise.theme.EdisonAndroidExerciseTheme
 import jp.speakbuddy.edisonandroidexercise.theme.components.EdisonPreview
 

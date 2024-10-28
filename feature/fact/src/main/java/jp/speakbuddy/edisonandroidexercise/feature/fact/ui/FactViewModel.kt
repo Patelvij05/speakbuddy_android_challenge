@@ -1,4 +1,4 @@
-package jp.speakbuddy.edisonandroidexercise.feature.fact.ui.fact
+package jp.speakbuddy.edisonandroidexercise.feature.fact.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,7 +20,7 @@ class FactViewModel
         private val factUseCase: FactUseCase,
     ) : ViewModel() {
         private val _factStateFlow: MutableStateFlow<FactUiState> =
-            MutableStateFlow(FactUiState.Initial)
+            MutableStateFlow(FactUiState.Loading)
         val factStateFlow: StateFlow<FactUiState> = _factStateFlow.asStateFlow()
 
         init {

@@ -4,7 +4,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import jp.speakbuddy.edisonandroidexercise.feature.fact.ui.fact.FactScreen
+import jp.speakbuddy.edisonandroidexercise.feature.fact.ui.FactScreen
 import kotlinx.serialization.Serializable
 
 @Serializable

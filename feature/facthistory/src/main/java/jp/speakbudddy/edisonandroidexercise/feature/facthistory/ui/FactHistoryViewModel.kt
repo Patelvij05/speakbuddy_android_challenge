@@ -15,24 +15,30 @@ import javax.inject.Inject
 
 @HiltViewModel
 class
-FactHistoryViewModel@Inject
-    constructor(
-        private val factHistoryUseCase: FactHistoryUseCase,
-    ) : ViewModel() {
-        private val _factHistoryStateFlow: MutableStateFlow<FactHistoryUiState> =
-            MutableStateFlow(FactHistoryUiState.Initial)
-        val factHistoryStateFlow: StateFlow<FactHistoryUiState> = _factHistoryStateFlow.asStateFlow()
+FactHistoryViewModel @Inject
+constructor(
+    private val factHistoryUseCase: FactHistoryUseCase,
+) : ViewModel() {
+    private val _factHistoryStateFlow: MutableStateFlow<FactHistoryUiState> =
+        MutableStateFlow(FactHistoryUiState.Initial)
+    val factHistoryStateFlow: StateFlow<FactHistoryUiState> = _factHistoryStateFlow.asStateFlow()
 
-        init {
-            updateFactHistory()
-        }
-
-        private fun updateFactHistory() {
-            _factHistoryStateFlow.update { FactHistoryUiState.Loading }
-            factHistoryUseCase.invoke().onEach { fact ->
-                _factHistoryStateFlow.update { FactHistoryUiState.Success(fact) }
-            }.catch { throwable ->
-                _factHistoryStateFlow.update { FactHistoryUiState.Error(throwable) }
-            }.launchIn(viewModelScope)
-        }
+    init {
+        updateFactHistory()
     }
+
+    private fun updateFactHistory() {
+        _factHistoryStateFlow.update { FactHistoryUiState.Loading }
+        factHistoryUseCase.invoke().onEach { fact ->
+            _factHistoryStateFlow.update {
+                if (fact.isNotEmpty()) {
+                    FactHistoryUiState.Success(fact)
+                } else {
+                    FactHistoryUiState.Initial
+                }
+            }
+        }.catch { throwable ->
+            _factHistoryStateFlow.update { FactHistoryUiState.Error(throwable) }
+        }.launchIn(viewModelScope)
+    }
+}

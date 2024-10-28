@@ -37,12 +37,14 @@ class FactViewModelTest {
         // Given
         val expected =
             "Some Fact about cats that it is inhabiting large island in Japan where you can visit and sees them. They also have more population than human inhabitant"
-        val fact = mockk<Fact> {
-            every { fact } returns expected
-        }
-        val factRepository = mockk<FactRepository> {
-            every { getFact() } returns flowOf(fact)
-        }
+        val fact =
+            mockk<Fact> {
+                every { fact } returns expected
+            }
+        val factRepository =
+            mockk<FactRepository> {
+                every { getFact() } returns flowOf(fact)
+            }
         val factUseCase = FactUseCase(factRepository)
         val viewModel = FactViewModel(factUseCase)
 
@@ -58,9 +60,10 @@ class FactViewModelTest {
     fun `test update fact error`() {
         // Given
         val error = RuntimeException()
-        val factRepository = mockk<FactRepository> {
-            every { getFact() } returns flow { throw error }
-        }
+        val factRepository =
+            mockk<FactRepository> {
+                every { getFact() } returns flow { throw error }
+            }
 
         val factUseCase = FactUseCase(factRepository)
         val viewModel = FactViewModel(factUseCase)
@@ -76,9 +79,10 @@ class FactViewModelTest {
     @Test
     fun `test update fact loading`() {
         // Given
-        val factRepository = mockk<FactRepository> {
-            every { getFact() } returns flow { }
-        }
+        val factRepository =
+            mockk<FactRepository> {
+                every { getFact() } returns flow { }
+            }
         val factUseCase = FactUseCase(factRepository)
         val viewModel = FactViewModel(factUseCase)
 

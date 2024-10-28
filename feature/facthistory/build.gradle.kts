@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.android.junit5)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.serialization)
 }
@@ -20,6 +21,7 @@ dependencies {
     implementation(projects.common.data)
     implementation(projects.common.utils)
     implementation(projects.common.domain)
+    implementation(projects.feature.facthistory.data)
     implementation(projects.feature.facthistory.domain)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

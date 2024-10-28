@@ -14,20 +14,20 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 class FactRepositoryImpl
-@Inject
-constructor(
-    private val factNetworkDataSource: FactNetworkDataSource,
-    private val factDao: FactDao,
-    private val factEntityMapper: FactEntityMapper,
-    private val factModelMapper: FactModelMapper,
-) : FactRepository {
-    override fun getFact(): Flow<Fact> =
-        factNetworkDataSource.fetchFact().map { response ->
-            factModelMapper.map(response)
-        }.onEach { result ->
-            factDao.upsertFacts(factEntityMapper.map(result))
-        }.catch { throwable ->
-            val fact = factDao.getLatestFactEntity()?.first()?.asExternalModel() ?: throw throwable
-            emit(fact)
-        }
-}
+    @Inject
+    constructor(
+        private val factNetworkDataSource: FactNetworkDataSource,
+        private val factDao: FactDao,
+        private val factEntityMapper: FactEntityMapper,
+        private val factModelMapper: FactModelMapper,
+    ) : FactRepository {
+        override fun getFact(): Flow<Fact> =
+            factNetworkDataSource.fetchFact().map { response ->
+                factModelMapper.map(response)
+            }.onEach { result ->
+                factDao.upsertFacts(factEntityMapper.map(result))
+            }.catch { throwable ->
+                val fact = factDao.getLatestFactEntity()?.first()?.asExternalModel() ?: throw throwable
+                emit(fact)
+            }
+    }

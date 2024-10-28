@@ -100,17 +100,17 @@ fun FactContent(
     ) { innerPadding ->
         Column(
             modifier =
-            modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
-                .padding(innerPadding)
-                .padding(start = 16.dp, end = 16.dp),
+                modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(innerPadding)
+                    .padding(start = 16.dp, end = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement =
-            Arrangement.spacedBy(
-                space = 16.dp,
-                alignment = Alignment.CenterVertically,
-            ),
+                Arrangement.spacedBy(
+                    space = 16.dp,
+                    alignment = Alignment.CenterVertically,
+                ),
         ) {
             Text(
                 text = stringResource(id = R.string.txt_fact_title),
@@ -140,13 +140,13 @@ private fun FactContentPreview() {
         ) {
             FactContent(
                 factUiState =
-                FactUiState.Success(
-                    FactModel(
-                        fact =
-                        "British cat owners spend roughly 550 million pounds yearly on cat food.",
-                        length = 71,
+                    FactUiState.Success(
+                        FactModel(
+                            fact =
+                                "British cat owners spend roughly 550 million pounds yearly on cat food.",
+                            length = 71,
+                        ),
                     ),
-                ),
                 onClick = { },
                 onTopAppBarActionClick = { },
             )

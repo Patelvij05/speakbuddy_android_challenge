@@ -55,13 +55,13 @@ private fun FactScreenPreview() {
         ) {
             FactContent(
                 factUiState =
-                FactUiState.Success(
-                    FactModel(
-                        fact =
-                        "British cat owners spend roughly 550 million pounds yearly on cat food.",
-                        length = 71,
+                    FactUiState.Success(
+                        FactModel(
+                            fact =
+                                "British cat owners spend roughly 550 million pounds yearly on cat food.",
+                            length = 71,
+                        ),
                     ),
-                ),
                 modifier = Modifier.padding(16.dp),
                 onClick = { },
                 onTopAppBarActionClick = { },

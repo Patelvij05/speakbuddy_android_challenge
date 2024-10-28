@@ -52,16 +52,16 @@ fun FactHistoryScreen(
 fun HistoryInitialBody(modifier: Modifier) {
     Row(
         modifier =
-        modifier
-            .fillMaxSize()
-            .padding(16.dp),
+            modifier
+                .fillMaxSize()
+                .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             modifier =
-            Modifier
-                .weight(1f)
-                .padding(16.dp),
+                Modifier
+                    .weight(1f)
+                    .padding(16.dp),
             style = MaterialTheme.typography.bodyLarge,
             text = stringResource(R.string.txt_empty_fact_history),
             textAlign = TextAlign.Center,
@@ -76,17 +76,17 @@ fun HistoryErrorBody(
 ) {
     Row(
         modifier =
-        modifier
-            .fillMaxSize()
-            .padding(16.dp),
+            modifier
+                .fillMaxSize()
+                .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             text =
-            stringResource(
-                id = R.string.txt_fact_history_error,
-                throwable.message.orEmpty(),
-            ),
+                stringResource(
+                    id = R.string.txt_fact_history_error,
+                    throwable.message.orEmpty(),
+                ),
             style = MaterialTheme.typography.bodyLarge,
             color = Color.Red,
             textAlign = TextAlign.Center,
@@ -137,16 +137,16 @@ fun FactHistoryContent(
     ) { innerPadding ->
         Column(
             modifier =
-            modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
-                .padding(innerPadding),
+                modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(innerPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement =
-            Arrangement.spacedBy(
-                space = 16.dp,
-                alignment = Alignment.CenterVertically,
-            ),
+                Arrangement.spacedBy(
+                    space = 16.dp,
+                    alignment = Alignment.CenterVertically,
+                ),
         ) {
             when (factHistoryUiState) {
                 is FactHistoryUiState.Error -> {
@@ -176,21 +176,21 @@ private fun FactHistorySuccessPreview() {
         ) {
             FactHistoryContent(
                 factHistoryUiState =
-                FactHistoryUiState.Success(
-                    fact =
-                    listOf(
-                        FactModel(
-                            fact =
-                            "British cat owners spend roughly 550 million pounds yearly on cat food.",
-                            length = 71,
-                        ),
-                        FactModel(
-                            fact =
-                            "British cat owners spend roughly 550 million pounds yearly on cat food.",
-                            length = 71,
-                        ),
+                    FactHistoryUiState.Success(
+                        fact =
+                            listOf(
+                                FactModel(
+                                    fact =
+                                        "British cat owners spend roughly 550 million pounds yearly on cat food.",
+                                    length = 71,
+                                ),
+                                FactModel(
+                                    fact =
+                                        "British cat owners spend roughly 550 million pounds yearly on cat food.",
+                                    length = 71,
+                                ),
+                            ),
                     ),
-                ),
                 modifier = Modifier,
                 onNavIconClick = { },
             )

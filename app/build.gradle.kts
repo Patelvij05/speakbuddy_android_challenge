@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.room)
     alias(libs.plugins.protobuf)
     alias(libs.plugins.ksp)
+    jacoco
 }
 
 android {
@@ -119,4 +120,28 @@ dependencies {
     androidTestImplementation(libs.hilt.android.testing)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+jacoco {
+    toolVersion = "0.8.12"
+}
+
+afterEvaluate {
+
+    tasks {
+        val testDebugUnitTest by existing(Test::class) {
+            testLogging.events =
+                setOf(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED)
+            finalizedBy("jacocoTestReport")
+        }
+
+        val jacocoTestDebugUnitTestReport by registering(JacocoReport::class) {
+            dependsOn(testDebugUnitTest)
+            reports {
+                xml.required = false
+                csv.required = true
+                html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
+            }
+        }
+    }
 }

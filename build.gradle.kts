@@ -4,9 +4,7 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.model.ComposeCompiler
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {

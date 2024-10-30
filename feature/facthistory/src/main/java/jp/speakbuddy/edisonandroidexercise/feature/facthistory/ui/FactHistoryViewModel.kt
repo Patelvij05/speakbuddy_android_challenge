@@ -1,4 +1,4 @@
-package jp.speakbudddy.edisonandroidexercise.feature.facthistory.ui
+package jp.speakbuddy.edisonandroidexercise.feature.facthistory.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

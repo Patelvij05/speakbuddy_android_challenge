@@ -8,7 +8,6 @@ plugins {
     alias(libs.plugins.android.junit5)
     alias(libs.plugins.hilt)
     alias(libs.plugins.room)
-    alias(libs.plugins.protobuf)
     alias(libs.plugins.ksp)
     jacoco
 }
@@ -40,28 +39,8 @@ android {
     }
 }
 
-// Setup protobuf configuration, generating lite Java and Kotlin classes
-protobuf {
-    protoc {
-        artifact = "com.google.protobuf:protoc:4.26.1"
-    }
-    generateProtoTasks {
-        all().forEach { task ->
-            task.builtins {
-                val java by registering {
-                    option("lite")
-                }
-                val kotlin by registering {
-                    option("lite")
-                }
-            }
-        }
-    }
-}
-
 dependencies {
     implementation(projects.theme)
-    implementation(projects.storage)
     implementation(projects.network)
     implementation(projects.database)
     implementation(projects.common.data)
@@ -74,7 +53,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -88,10 +66,14 @@ dependencies {
     implementation(libs.hilt)
     ksp(libs.hilt.compiler)
 
-    implementation(libs.datastore)
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
+
+    implementation(libs.okhttp)
+    implementation(libs.retrofit.core)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit.kotlin.serialization)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -101,12 +83,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.protobuf.kotlin.lite)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit.kotlin.serialization)
-    implementation(libs.okhttp)
-    implementation(libs.retrofit.core)
     kspTest(libs.hilt.compiler)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit)

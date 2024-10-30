@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "jp.speakbudddy.edisonandroidexercise.feature.facthistory"
+    namespace = "jp.speakbuddy.edisonandroidexercise.feature.facthistory"
 
     buildFeatures {
         compose = true
@@ -23,10 +23,10 @@ dependencies {
     implementation(projects.common.domain)
     implementation(projects.feature.facthistory.data)
     implementation(projects.feature.facthistory.domain)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
-    implementation(libs.androidx.activity.compose)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -39,11 +39,7 @@ dependencies {
 
     implementation(libs.hilt)
     ksp(libs.hilt.compiler)
-
-    implementation(libs.okhttp)
-    implementation(libs.retrofit.core)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit.kotlin.serialization)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)

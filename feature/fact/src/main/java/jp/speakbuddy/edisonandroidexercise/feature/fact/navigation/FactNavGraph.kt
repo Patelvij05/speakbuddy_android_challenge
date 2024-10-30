@@ -1,4 +1,4 @@
-package jp.speakbuddy.edisonandroidexercise.feature.fact
+package jp.speakbuddy.edisonandroidexercise.feature.fact.navigation
 
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel

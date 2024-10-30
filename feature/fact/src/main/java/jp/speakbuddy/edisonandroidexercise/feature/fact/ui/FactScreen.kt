@@ -32,6 +32,7 @@ import jp.speakbuddy.edisonandroidexercise.theme.EdisonAndroidExerciseTheme
 import jp.speakbuddy.edisonandroidexercise.theme.components.AppBar
 import jp.speakbuddy.edisonandroidexercise.theme.components.EdisonPreview
 import jp.speakbuddy.edisonandroidexercise.theme.components.ProgressIndicator
+import jp.speakbuddy.edisonandroidexercise.feature.facthistory.R as factHistoryR
 
 @Composable
 fun FactScreen(
@@ -91,9 +92,9 @@ fun FactContent(
     Scaffold(
         topBar = {
             AppBar(
-                stringResource(id = R.string.txt_fact_title),
+                title = stringResource(id = R.string.txt_fact_title),
                 actionIcon = Icons.Rounded.History,
-                actionIconContentDescription = "Fact History",
+                actionIconContentDescription = stringResource(id = factHistoryR.string.txt_fact_history_title),
                 onActionClick = { onTopAppBarActionClick() },
             )
         },

@@ -16,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import jp.speakbuddy.edisonandroidexercise.common.data.model.FactModel
 import jp.speakbuddy.edisonandroidexercise.feature.fact.ui.FactContent
 import jp.speakbuddy.edisonandroidexercise.feature.fact.ui.FactUiState
+import jp.speakbuddy.edisonandroidexercise.navigation.EdisonNavHost
 import jp.speakbuddy.edisonandroidexercise.theme.EdisonAndroidExerciseTheme
 import jp.speakbuddy.edisonandroidexercise.theme.components.EdisonPreview
 

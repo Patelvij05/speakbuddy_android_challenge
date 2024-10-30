@@ -5,7 +5,6 @@ plugins {
 }
 
 dependencies {
-    implementation(projects.storage)
     implementation(libs.okhttp)
     implementation(libs.retrofit.core)
     implementation(libs.kotlin.coroutines)

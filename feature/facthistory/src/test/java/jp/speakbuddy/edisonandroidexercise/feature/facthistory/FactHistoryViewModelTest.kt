@@ -4,11 +4,11 @@ package jp.speakbuddy.edisonandroidexercise.feature.facthistory
 
 import io.mockk.every
 import io.mockk.mockk
-import jp.speakbudddy.edisonandroidexercise.feature.facthistory.ui.FactHistoryUiState
-import jp.speakbudddy.edisonandroidexercise.feature.facthistory.ui.FactHistoryViewModel
 import jp.speakbuddy.edisonandroidexercise.common.data.model.FactModel
 import jp.speakbuddy.edisonandroidexercise.feature.facthistory.data.FactHistoryRepository
 import jp.speakbuddy.edisonandroidexercise.feature.facthistory.domain.FactHistoryUseCase
+import jp.speakbuddy.edisonandroidexercise.feature.facthistory.ui.FactHistoryUiState
+import jp.speakbuddy.edisonandroidexercise.feature.facthistory.ui.FactHistoryViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow

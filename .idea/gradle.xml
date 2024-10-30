@@ -24,7 +24,6 @@
             <option value="$PROJECT_DIR$/feature/facthistory/data" />
             <option value="$PROJECT_DIR$/feature/facthistory/domain" />
             <option value="$PROJECT_DIR$/network" />
-            <option value="$PROJECT_DIR$/storage" />
             <option value="$PROJECT_DIR$/theme" />
           </set>
         </option>

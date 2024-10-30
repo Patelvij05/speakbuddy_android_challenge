@@ -1,13 +1,13 @@
-package jp.speakbuddy.edisonandroidexercise
+package jp.speakbuddy.edisonandroidexercise.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import jp.speakbudddy.edisonandroidexercise.feature.facthistory.FactHistoryRoute
-import jp.speakbudddy.edisonandroidexercise.feature.facthistory.factHistoryNavGraph
-import jp.speakbuddy.edisonandroidexercise.feature.fact.FactRoute
-import jp.speakbuddy.edisonandroidexercise.feature.fact.factNavGraph
+import jp.speakbuddy.edisonandroidexercise.feature.fact.navigation.FactRoute
+import jp.speakbuddy.edisonandroidexercise.feature.fact.navigation.factNavGraph
+import jp.speakbuddy.edisonandroidexercise.feature.facthistory.navigation.FactHistoryRoute
+import jp.speakbuddy.edisonandroidexercise.feature.facthistory.navigation.factHistoryNavGraph
 
 @Composable
 fun EdisonNavHost(

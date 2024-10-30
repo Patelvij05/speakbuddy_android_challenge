@@ -24,10 +24,10 @@ dependencies {
     implementation(projects.feature.fact.data)
     implementation(projects.feature.fact.domain)
     implementation(projects.feature.facthistory)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
-    implementation(libs.androidx.activity.compose)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -40,11 +40,7 @@ dependencies {
 
     implementation(libs.hilt)
     ksp(libs.hilt.compiler)
-
-    implementation(libs.okhttp)
-    implementation(libs.retrofit.core)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit.kotlin.serialization)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)

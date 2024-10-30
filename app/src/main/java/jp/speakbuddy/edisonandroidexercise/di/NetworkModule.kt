@@ -5,11 +5,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import jp.speakbuddy.edisonandroidexercise.FactHandlerImpl
 import jp.speakbuddy.edisonandroidexercise.network.FactNetworkDataSource
 import jp.speakbuddy.edisonandroidexercise.network.FactService
 import jp.speakbuddy.edisonandroidexercise.network.datasource.FactNetworkDataSourceImpl
-import jp.speakbuddy.edisonandroidexercise.storage.FactHandler
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
@@ -19,10 +17,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
     @Provides
-    fun provideFactHandler(factHandler: FactHandlerImpl): FactHandler = factHandler
-
-    @Provides
-    fun provideFactNetworkDataSource(factHandler: FactNetworkDataSourceImpl): FactNetworkDataSource = factHandler
+    fun provideFactNetworkDataSource(factNetworkDataSourceImpl: FactNetworkDataSourceImpl): FactNetworkDataSource =
+        factNetworkDataSourceImpl
 
     @BaseUrl
     @Provides

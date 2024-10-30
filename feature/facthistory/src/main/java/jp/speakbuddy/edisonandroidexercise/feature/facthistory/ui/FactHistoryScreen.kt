@@ -1,4 +1,4 @@
-package jp.speakbudddy.edisonandroidexercise.feature.facthistory.ui
+package jp.speakbuddy.edisonandroidexercise.feature.facthistory.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -27,8 +27,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import jp.speakbudddy.edisonandroidexercise.feature.facthistory.R
 import jp.speakbuddy.edisonandroidexercise.common.data.model.FactModel
+import jp.speakbuddy.edisonandroidexercise.feature.facthistory.R
 import jp.speakbuddy.edisonandroidexercise.theme.EdisonAndroidExerciseTheme
 import jp.speakbuddy.edisonandroidexercise.theme.components.AppBar
 import jp.speakbuddy.edisonandroidexercise.theme.components.EdisonPreview

@@ -83,6 +83,14 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit.kotlin.serialization)
+
+    implementation(libs.okhttp)
+    implementation(libs.retrofit.core)
+
+    implementation(libs.ktor.client.core)
     kspTest(libs.hilt.compiler)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit)

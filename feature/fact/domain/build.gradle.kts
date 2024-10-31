@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     implementation(projects.network)
+    implementation(projects.database)
     implementation(projects.common.data)
     implementation(projects.common.utils)
     implementation(projects.common.domain)

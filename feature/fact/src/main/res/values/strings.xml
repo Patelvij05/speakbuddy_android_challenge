@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_fact_title">Fact</string>
+    <string name="txt_fact_error">something went wrong. error = %1$s</string>
+    <string name="txt_fact_length">Length: %1$s</string>
+    <string name="txt_fact_multiple_cats">Multiple cats!!</string>
+    <string name="btn_update_fact">Update fact</string>
+</resources>

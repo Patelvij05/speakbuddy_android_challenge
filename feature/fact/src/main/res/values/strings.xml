@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_fact_title">Fact</string>
+    <string name="txt_fact_error">something went wrong. error = %1$s</string>
+    <string name="txt_fact_length">Length: %1$s</string>
+    <string name="txt_fact_multiple_cats">Multiple cats!!</string>
+    <string name="btn_update_fact">Update fact</string>
+    <string name="txt_service_unavailable">Service unavailable, Try again later</string>
+    <string name="txt_unknown_error">Unknown error occurred</string>
+    <string name="txt_unauthorized_error">Unauthorized access</string>
+</resources>
